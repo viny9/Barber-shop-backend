@@ -6,6 +6,7 @@ import { DatabaseModule } from 'src/database/database.module';
 @Module({
   imports: [DatabaseModule],
   controllers: [ScheduleController],
+  exports: [ScheduleService],
   providers: [ScheduleService],
 })
 export class ScheduleModule { }

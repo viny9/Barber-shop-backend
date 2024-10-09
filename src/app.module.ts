@@ -15,7 +15,7 @@ import { DatabaseModule } from './database/database.module';
     BarberModule,
     ScheduleModule,
     UserModule,
-    DatabaseModule
+    DatabaseModule,
   ],
   controllers: [AppController],
   providers: [AppService],

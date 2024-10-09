@@ -1,7 +1,5 @@
 import { BarberRepository } from './../../database/repositories/barber.repository';
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateBarberDto } from './dto/create-barber.dto';
-import { AlredyExistsException } from 'src/shared/exceptions/AlredyExistsException';
 import { UpdateBarberDto } from './dto/update-barber.dto';
 import { BarberFilterDto } from './dto/barber-filter.dto';
 

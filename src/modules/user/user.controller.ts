@@ -34,7 +34,7 @@ export class UserController {
     return this.scheduleService.findUserSchedules(+id);
   }
 
-  @Post()
+  @Post('/register')
   create(@Body() createUserDto: CreateUserDto) {
     return this.userService.create(createUserDto);
   }
