@@ -8,7 +8,6 @@ import { CreateBarberDto } from '../barber/dto/create-barber.dto';
 
 @Controller('user')
 export class UserController {
-  // Remove barberId from user
   constructor(
     private readonly userService: UserService,
     private readonly scheduleService: ScheduleService

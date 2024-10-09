@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { BarberService } from './barber.service';
 import { UpdateBarberDto } from './dto/update-barber.dto';
 import { ScheduleService } from '../schedule/schedule.service';
+import { Roles } from 'src/shared/decorators/role.decorator';
 
 @Controller('barber')
 export class BarberController {
