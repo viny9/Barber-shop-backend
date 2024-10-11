@@ -1,25 +1,20 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Body, Patch, Param, Delete } from '@nestjs/common';
 import { BarberService } from './barber.service';
 import { UpdateBarberDto } from './dto/update-barber.dto';
-import { ScheduleService } from '../schedule/schedule.service';
-import { Roles } from 'src/shared/decorators/role.decorator';
 
 @Controller('barber')
 export class BarberController {
-  
-  constructor(
-    private readonly barberService: BarberService,
-    private readonly scheduleService: ScheduleService
-  ) { }
+
+  constructor(private readonly barberService: BarberService) { }
 
   @Get()
   findAll() {
     return this.barberService.findAll();
   }
 
-  @Get(':id/schedules')
-  findBarberSchedules(@Param('id') id: string) {
-    return this.scheduleService.findBarberSchedules(+id);
+  @Get('/barberShop/:id')
+  findBarbersByBarberShop(@Param('id') id: string) {
+    return this.barberService.findByBarberShopId(+id)
   }
 
   @Get(':id')

@@ -13,11 +13,12 @@ export class RoleGuard implements CanActivate {
             ROLE_KEY,
             [context.getHandler(), context.getClass()],
         );
+
+        if (!routerRole) return true
+
         const request = context.switchToHttp().getRequest()
         const user = request.user
         const userRole: Role = user.type
-
-        console.log(userRole)
 
         if (!this.isPermissionValid(userRole, routerRole)) {
             throw new UnauthorizedException("You don't have permission")
@@ -27,8 +28,6 @@ export class RoleGuard implements CanActivate {
     }
 
     isPermissionValid(userRole: Role, routerRole: Role) {
-        if (!routerRole) return true
-
         if (userRole == Role.ADMIN || userRole == Role.MASTER) {
             return true
         }

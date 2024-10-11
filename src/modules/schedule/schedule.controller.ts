@@ -23,6 +23,11 @@ export class ScheduleController {
     return this.scheduleService.filter(scheduleFilterDto)
   }
 
+  @Get('/barber/:id')
+  findBarberSchedules(@Param('id') id: string) {
+    return this.scheduleService.findBarberSchedules(+id);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.scheduleService.findOne(+id);
