@@ -3,10 +3,11 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateScheduleDto } from './dto/create-schedule.dto';
 import { UpdateScheduleDto } from './dto/update-schedule.dto';
 import { ScheduleFilterDto } from './dto/Schedule-filter.dto';
+import { BarberRepository } from 'src/database/repositories/barber.repository';
 
 @Injectable()
 export class ScheduleService {
-  constructor(private scheduleRepository: ScheduleRepository) { }
+  constructor(private scheduleRepository: ScheduleRepository, private barberRepository: BarberRepository) { }
 
   findAll() {
     const schedules = this.scheduleRepository.findAll()
@@ -23,11 +24,25 @@ export class ScheduleService {
     return schedule;
   }
 
+  async findBarberShopSchedule(barberShopId: number) {
+    const barbers = await this.barberRepository.findBarberByBarberShopId(barberShopId)
+    // dont have barber 
+    const allSchedules = barbers.map(async (barber) => {
+      const barberSchedules = await this.scheduleRepository.findAllBarberSchedules(barber.id)
+      return barberSchedules
+    })
+
+    return await Promise.all(allSchedules)
+  }
+
+
   async findBarberSchedules(barberId: number) {
+    // check user exists
     return await this.scheduleRepository.findAllBarberSchedules(barberId)
   }
 
   async findUserSchedules(userId: number) {
+    // check user exists
     return await this.scheduleRepository.findAllUserSchedules(userId)
   }
 
