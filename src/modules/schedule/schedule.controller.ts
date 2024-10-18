@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestj
 import { ScheduleService } from './schedule.service';
 import { CreateScheduleDto } from './dto/create-schedule.dto';
 import { UpdateScheduleDto } from './dto/update-schedule.dto';
-import { ScheduleFilterDto } from './dto/Schedule-filter.dto';
+import { ScheduleFilterDto } from './dto/schedule-filter.dto';
 
 @Controller('schedule')
 export class ScheduleController {
