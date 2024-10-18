@@ -62,8 +62,22 @@ export default abstract class AbstractRepository<T, F = any, U = any,> implement
 
         Object.keys(filterDto).forEach((field) => {
             const fieldValue = filterDto[field]
+            const fieldType = typeof filterDto[field]
 
-            if (fieldValue) {
+            if (fieldType == "number") {
+                filterWhere[field] = { equals: fieldValue }
+            } else if (field == 'date') {
+                const date = new Date(filterDto['date'])
+                date.setUTCHours(0, 0, 0);
+
+                const endOfDay = new Date(filterDto['date'])
+                endOfDay.setUTCHours(23, 59, 59);
+
+                filterWhere[field] = {
+                    gte: date,
+                    lte: endOfDay
+                }
+            } else {
                 filterWhere[field] = { contains: fieldValue }
             }
         })

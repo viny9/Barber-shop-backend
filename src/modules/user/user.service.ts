@@ -3,10 +3,9 @@ import { UserRepository } from './../../database/repositories/user.repository';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { CreateUserDto } from './dto/create-user.dto';
-import { AlredyExistsException } from 'src/shared/exceptions/AlredyExistsException';
+import { AlredyExistsException } from 'src/shared/exceptions/alredy-exists.exception';
 import { UserFilterDto } from './dto/user-filter.dto';
 import { BarberRepository } from 'src/database/repositories/barber.repository';
-import { User } from './entities/user.entity';
 
 @Injectable()
 export class UserService {
@@ -25,6 +24,11 @@ export class UserService {
     }
 
     return user;
+  }
+
+  async findByEmail(email: string) {
+    const user = await this.userRepository.findUserByEmail(email)
+    return user
   }
 
   async create(createUserDto: CreateUserDto) {

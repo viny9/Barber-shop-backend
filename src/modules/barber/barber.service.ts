@@ -1,9 +1,6 @@
 import { BarberRepository } from './../../database/repositories/barber.repository';
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateBarberDto } from './dto/create-barber.dto';
-import { AlredyExistsException } from 'src/shared/exceptions/AlredyExistsException';
 import { UpdateBarberDto } from './dto/update-barber.dto';
-import { BarberFilterDto } from './dto/barber-filter.dto';
 
 @Injectable()
 export class BarberService {
@@ -24,6 +21,12 @@ export class BarberService {
     return barber;
   }
 
+  async findByBarberShopId(id: number) {
+    // Te
+    const barbers = await this.barberRepository.findBarberByBarberShopId(id)
+    return barbers
+  }
+
   async update(id: number, updateBarberDto: UpdateBarberDto) {
     const exists = await this.barberRepository.checkIfExist(id)
 
@@ -42,15 +45,5 @@ export class BarberService {
     }
 
     return this.barberRepository.delete(id)
-  }
-
-  async filter(barberShopFilterDto: BarberFilterDto) {
-    const filterRes = await this.barberRepository.filter(barberShopFilterDto)
-
-    if (filterRes.length == 0) {
-      throw new NotFoundException("Couldn't found any barber shop with this filter selection")
-    }
-
-    return filterRes
   }
 }
