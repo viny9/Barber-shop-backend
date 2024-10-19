@@ -1,8 +1,8 @@
 import AbstractRepository from "./abstract.repository";
-import { BarberShop } from "src/modules/barber-shop/entities/barber-shop.entity";
+import { BarberShop } from "../../modules/barber-shop/entities/barber-shop.entity";
 import { PrismaService } from "../prisma.service";
 import { Injectable } from "@nestjs/common";
-import { BarberShopFilterDto } from "src/modules/barber-shop/dto/barbershop-filter.dto";
+import { BarberShopFilterDto } from "../../modules/barber-shop/dto/barbershop-filter.dto";
 
 @Injectable()
 export class BarberShopRepository extends AbstractRepository<BarberShop, BarberShopFilterDto> {

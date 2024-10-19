@@ -1,8 +1,8 @@
 import AbstractRepository from "./abstract.repository";
 import { PrismaService } from "../prisma.service";
-import { User } from "src/modules/user/entities/user.entity";
+import { User } from "../../modules/user/entities/user.entity";
 import { Injectable } from "@nestjs/common";
-import { UserFilterDto } from "src/modules/user/dto/user-filter.dto";
+import { UserFilterDto } from "../../modules/user/dto/user-filter.dto";
 
 @Injectable()
 export class UserRepository extends AbstractRepository<User, UserFilterDto> {

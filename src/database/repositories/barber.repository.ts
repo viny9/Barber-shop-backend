@@ -1,6 +1,6 @@
 import AbstractRepository from "./abstract.repository";
 import { PrismaService } from "../prisma.service";
-import { Barber } from "src/modules/barber/entities/barber.entity";
+import { Barber } from "../../modules/barber/entities/barber.entity";
 import { Prisma } from "@prisma/client";
 import { Injectable } from "@nestjs/common";
 

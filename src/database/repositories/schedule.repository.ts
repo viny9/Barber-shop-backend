@@ -3,7 +3,7 @@ import { PrismaService } from "../prisma.service";
 import { Prisma } from "@prisma/client";
 import { Schedule } from '../../modules/schedule/entities/schedule.entity';
 import { Injectable } from "@nestjs/common";
-import { ScheduleFilterDto } from "src/modules/schedule/dto/schedule-filter.dto";
+import { ScheduleFilterDto } from "../../modules/schedule/dto/schedule-filter.dto";
 
 @Injectable()
 export class ScheduleRepository extends AbstractRepository<Schedule, ScheduleFilterDto, Prisma.ScheduleInclude> {
