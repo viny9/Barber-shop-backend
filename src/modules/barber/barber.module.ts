@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { BarberService } from './barber.service';
 import { BarberController } from './barber.controller';
 import { DatabaseModule } from 'src/database/database.module';
-import { ScheduleModule } from '../schedule/schedule.module';
 import { ScheduleService } from '../schedule/schedule.service';
 
 @Module({

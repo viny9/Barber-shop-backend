@@ -1,4 +1,4 @@
-import { Repository } from "src/shared/interfaces/Repository";
+import { Repository } from "../../shared/interfaces/Repository";
 import { PrismaService } from "../prisma.service";
 import { Injectable } from "@nestjs/common";
 

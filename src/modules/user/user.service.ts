@@ -3,9 +3,9 @@ import { UserRepository } from './../../database/repositories/user.repository';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { CreateUserDto } from './dto/create-user.dto';
-import { AlredyExistsException } from 'src/shared/exceptions/alredy-exists.exception';
+import { AlredyExistsException } from '../../shared/exceptions/alredy-exists.exception';
 import { UserFilterDto } from './dto/user-filter.dto';
-import { BarberRepository } from 'src/database/repositories/barber.repository';
+import { BarberRepository } from '../../database/repositories/barber.repository';
 
 @Injectable()
 export class UserService {
