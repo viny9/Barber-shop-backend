@@ -1,4 +1,4 @@
-import { BaseEntity } from "src/shared/classes/base.entity"
+import { BaseEntity } from "../../../shared/classes/base.entity"
 import { CreateUserDto } from "../dto/create-user.dto"
 import { Role } from "@prisma/client"
 

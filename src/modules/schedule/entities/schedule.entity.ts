@@ -1,4 +1,4 @@
-import { BaseEntity } from "src/shared/classes/base.entity"
+import { BaseEntity } from "../../../shared/classes/base.entity"
 
 export class Schedule extends BaseEntity {
     public userId: number
