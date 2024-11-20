@@ -2,7 +2,7 @@ import { ScheduleRepository } from './../../database/repositories/schedule.repos
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateScheduleDto } from './dto/create-schedule.dto';
 import { UpdateScheduleDto } from './dto/update-schedule.dto';
-import { ScheduleFilterDto } from './dto/Schedule-filter.dto';
+import { ScheduleFilterDto } from './dto/schedule-filter.dto';
 import { BarberRepository } from 'src/database/repositories/barber.repository';
 
 @Injectable()
